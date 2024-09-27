@@ -47,24 +47,24 @@ CREATE TABLE RetailSales (
 - **Category Count**: Identify all unique product categories in the dataset.
 - **Null Value Check**: Check for any null values in the dataset and delete records with missing data.
 
-## 1. How many sales do we have?
-```
+### a. How many sales do we have?
+```sql
 SELECT COUNT(*) AS total_sale FROM RetailSales;
 ```
-## 2. How many customers do we have?
-```
+### b. How many customers do we have?
+```sql
 SELECT COUNT(customer_id) AS totalCustomers FROM RetailSales;
 ```
-## 3. How many unique customers do we have?
-```
+### c. How many unique customers do we have?
+```sql
 SELECT COUNT(DISTINCT customer_id) AS uniqueCustomers FROM RetailSales;
 ```
-## 4. How many categories do we have?
-```
+### d. How many categories do we have?
+```sql
 SELECT DISTINCT(category) FROM RetailSales;
 ```
-## Check for records with NULL values in any critical columns
-```
+### e. Check for records with NULL values in any critical columns
+```sql
 SELECT * FROM RetailSales
 WHERE
     transactions_id IS NULL OR
@@ -79,8 +79,8 @@ WHERE
     cogs IS NULL OR
     total_sale IS NULL;
 ```
-## Delete records with NULL values in any critical columns
-```
+### f. Delete records with NULL values in any critical columns
+```sql
 DELETE FROM RetailSales
 WHERE
     transactions_id IS NULL OR
