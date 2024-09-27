@@ -20,8 +20,8 @@ This project is designed to demonstrate SQL skills and techniques typically used
 
 ### 1. Database Setup
 
-- **Database Creation**: The project starts by creating a database named `SQLpro_MK1`.
-- **Table Creation**: A table named `RetailSales` is created to store the sales data. The table structure includes columns for transaction ID, sale date, sale time, customer ID, gender, age, product category, quantity sold, price per unit, cost of goods sold (COGS), and total sale amount.
+**Database Creation**: The project starts by creating a database named `SQLpro_MK1`.
+**Table Creation**: A table named `RetailSales` is created to store the sales data. The table structure includes columns for transaction ID, sale date, sale time, customer ID, gender, age, product category, quantity sold, price per unit, cost of goods sold (COGS), and total sale amount.
 
 ```sql
 CREATE DATABASE SQLpro_MK1;
@@ -47,19 +47,24 @@ CREATE TABLE RetailSales (
 - **Category Count**: Identify all unique product categories in the dataset.
 - **Null Value Check**: Check for any null values in the dataset and delete records with missing data.
 
--- 1. How many sales do we have?
+## 1. How many sales do we have?
+```
 SELECT COUNT(*) AS total_sale FROM RetailSales;
-
--- 2. How many customers do we have?
+```
+## 2. How many customers do we have?
+```
 SELECT COUNT(customer_id) AS totalCustomers FROM RetailSales;
-
--- 3. How many unique customers do we have?
+```
+## 3. How many unique customers do we have?
+```
 SELECT COUNT(DISTINCT customer_id) AS uniqueCustomers FROM RetailSales;
-
--- 4. How many categories do we have?
+```
+## 4. How many categories do we have?
+```
 SELECT DISTINCT(category) FROM RetailSales;
-
--- Check for records with NULL values in any critical columns
+```
+## Check for records with NULL values in any critical columns
+```
 SELECT * FROM RetailSales
 WHERE
     transactions_id IS NULL OR
@@ -73,8 +78,9 @@ WHERE
     price_per_unit IS NULL OR
     cogs IS NULL OR
     total_sale IS NULL;
-
--- Delete records with NULL values in any critical columns
+```
+## Delete records with NULL values in any critical columns
+```
 DELETE FROM RetailSales
 WHERE
     transactions_id IS NULL OR
@@ -88,7 +94,6 @@ WHERE
     price_per_unit IS NULL OR
     cogs IS NULL OR
     total_sale IS NULL;
-
 ```
 ### 3. Data Analysis & Findings
 
